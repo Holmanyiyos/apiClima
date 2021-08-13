@@ -1,0 +1,115 @@
+
+.info-actual {
+    height: 810px;
+    min-width: 320px;
+    max-width: 460px;
+    background-color: $aside-bg-color;
+    @include flex(flex, null, center);
+    flex-direction: column;
+    text-align: center;
+
+    &__btn-container {
+        @include flex(flex, space-between, center);
+        height: 50px;
+        padding-top: 18px;
+        width: 92%;
+        margin-bottom: 65px;
+    }
+
+    &__btn-container--btn-menu {
+        width: 160px;
+        height: 40px;
+        background: #6E707A;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        color: #e7e7eb;
+        line-height: 1.9rem;
+        font-family: $font;
+        font-weight: 500;border: none;
+        outline: none;
+        z-index: 3;
+
+    }
+
+    &__btn-container--btn-gps {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: #6E707A;
+        box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+        color: #e7e7eb;
+        font-size: 2.6rem;
+    }
+
+    &__img-clima {
+        position: relative;
+        width: 100%;
+
+        .bg {
+            position: absolute;
+            top: -90px;
+            width: 100%;
+            height: 400px;
+            background-image: url(../images/Cloud-background.png);
+            background-size: 170% 350px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            z-index: 1;
+            opacity: 0.1;
+        }   
+
+        img {
+            width: 150px;
+        }
+}
+
+    &__body {
+        @include flex(flex, space-evenly, center);
+        flex-direction: column;
+        height: 500px;
+
+        &--temp {
+            font-size: 14.4rem;
+            font-weight: 500;
+            z-index: 3;
+            
+            span {
+                position: relative;
+                bottom: 30px;
+                right: 35px;
+                font-size: 5rem;
+                color: #A09FB1;
+            }
+        }
+
+        &--clima {
+            font-size: 3.6rem;
+            font-weight: 600;
+            line-height: 42,26px;
+            color: #A09FB1;
+        }
+
+        &--info {
+            width: 100%;
+            @include flex(flex, space-evenly, center);
+            color: #88869D;
+            font-size: 18px;
+            
+        }
+
+        &--punto {
+            width: 4px;
+            height: 4px;
+            background-color: #88869D;
+            border-radius: 50%;
+        }
+
+        &--pais {
+            color: #88869D;
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
+
+
+    }
+}

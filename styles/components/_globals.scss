@@ -1,0 +1,45 @@
+//Variables
+$aside-bg-color: rgba(30, 33, 58, 1);
+$main-bg-color: #100E1D;
+$font: "Raleway", sans-serif;
+$space: space-between;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Raleway", sans-serif;
+    color: #E7E7EB;
+    position: relative;
+}
+
+.hide {
+    left: -500px;
+    transition: left ease-in 300ms;
+}
+
+.aparecer {
+    left: 0;
+    width: 100%;
+    transition: left ease-in 300ms;
+}
+
+@mixin flex($flex, $justify, $align) {
+    display: $flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 18px 0;
+}

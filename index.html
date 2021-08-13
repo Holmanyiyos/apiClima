@@ -5,56 +5,66 @@
   <meta
     name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"/>
   <title>Devchallenges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css">
 
 </head>
 <body>
-<nav class="menu-lateral">
-  <p>X</p>
-  <div class="busqueda">
-    <input type="text" id="ciudad">
-    <button>Buscar</button>
+
+<!--Navegation-->
+<nav id="menu-lateral" class="hide menu-lateral">
+  <div class="container">
+    <p id="cerrar" class="menu-lateral__active">X</p>
+    <div class="busqueda">
+      <input type="text" placeholder="buscar ciudad" id="ciudad">
+      <button>Buscar</button>
+    </div>
+    <section class="ultimas-busquedas">
+      <h2 class="ultimas-busquedas__titulo">últimas busquedas</h2>
+      <div class="ultimas-busquedas__card">
+        <p>London</p>
+        <span>></span>
+      </div>
+
+      <div class="ultimas-busquedas__card">
+        <p>Brasil</p>
+        <span>></span>
+      </div>
+
+      <div class="ultimas-busquedas__card">
+        <p>Japon</p>
+        <span>></span>
+      </div>
+
+    </section>
   </div>
-  <h2 class="ultimas-busquedas__titulo">últimas busquedas</h2>
-  <section class="ultimas-busquedas">
-    <div class="ultimas-busquedas__card">
-      <p>London</p>
-      <span>></span>
-    </div>
-
-    <div class="ultimas-busquedas__card">
-      <p>Brasil</p>
-      <span>></span>
-    </div>
-
-    <div class="ultimas-busquedas__card">
-      <p>Japon</p>
-      <span>></span>
-    </div>
-
-  </section>
 </nav>
+
+<!--Informacion Actual-->
 <aside class="info-actual">
   <div class="info-actual__btn-container">
     <!-- este botón despliega el menú lateral  -->
-    <button class="info-actual__btn-container--btn-menu">Buscar Por Lugar</button>
+    <button id="buscar-ciudad" class="info-actual__btn-container--btn-menu">Buscar Por Lugar</button>
 
     <!-- este botón busca según tu localización GPS  -->
     <button class="info-actual__btn-container--btn-gps">+</button>
   </div>
 
   <div class="info-actual__img-clima">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="" class="info-actual__img-clima--principal">
+    <div class="bg"></div>
+    <img src="./images/Shower.png" alt="lluvias" class="info-actual__img-clima--principal">
   </div>
   
   <section class="info-actual__body">
     <h2 class="info-actual__body--temp">15 <span>°C</span></h2>
     <p class="info-actual__body--clima">Shower</p>
-    <span class="info-actual__body--dia">Today</span>
-    <span class="info-actual__body--fecha">Fri, 5 Jun</span>
+    <div class="info-actual__body--info">
+      <span class="info-actual__body--dia">Today</span>
+      <span class="info-actual__body--punto"></span>
+      <span class="info-actual__body--fecha">Fri, 5 Jun</span>
+    </div>
     <p class="info-actual__body--pais"><span>icon</span> Helsinki</p>
   </section>
 
@@ -160,6 +170,6 @@
   </footer>
 </section>
 
-
+<script src="./index.js"></script>
 </body>
 </html>
