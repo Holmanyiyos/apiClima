@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/index.css">
 
 </head>
 <body>
 
 <!--Navegation-->
-<nav id="menu-lateral" class="hide menu-lateral">
+<nav id="menu-lateral" class="ocultar menu-lateral">
   <div class="container">
     <p id="cerrar" class="menu-lateral__active">X</p>
     <div class="busqueda">
@@ -65,21 +66,24 @@
       <span class="info-actual__body--punto"></span>
       <span class="info-actual__body--fecha">Fri, 5 Jun</span>
     </div>
-    <p class="info-actual__body--pais"><span>icon</span> Helsinki</p>
+    <p class="info-actual__body--pais"><i class="fas fa-map-marker-alt"></i> Helsinki</p>
   </section>
 
 </aside>
 
-
+<!--Informacion actual-->
 <section class="info-total">
-  <div class="info-total__btn-container">
+
+  <div class="hide info-total__btn-container">
     <button class="info-total__btn-container--c">°C</button>
     <button class="info-total__btn-container--f">°F</button>
   </div>
+
+  <!--Cards de la semana-->
   <section class="info-total__semana">
     <article class="info-total__semana--card">
       <h3 class="semana__card--titulo">Tomorrow</h3>
-      <img src="" alt="">
+      <img src="./images/Sleet.png" alt="Nevado">
       <div class="semana__card--body">
         <p>16 <span>°C</span></p>
         <p>11 <span>°C</span></p>
@@ -88,7 +92,7 @@
 
     <article class="info-total__semana--card">
       <h3 class="semana__card--titulo">Tomorrow</h3>
-      <img src="" alt="">
+      <img src="./images/Thunderstorm.png" alt="Tormenta Electrica">
       <div class="semana__card--body">
         <p>16 <span>°C</span></p>
         <p>11 <span>°C</span></p>
@@ -97,7 +101,7 @@
 
     <article class="info-total__semana--card">
       <h3 class="semana__card--titulo">Tomorrow</h3>
-      <img src="" alt="">
+      <img src="./images/Shower.png" alt="Lluvias">
       <div class="semana__card--body">
         <p>16 <span>°C</span></p>
         <p>11 <span>°C</span></p>
@@ -106,7 +110,7 @@
 
     <article class="info-total__semana--card">
       <h3 class="semana__card--titulo">Tomorrow</h3>
-      <img src="" alt="">
+      <img src="./images/LightCloud.png" alt="Despejado">
       <div class="semana__card--body">
         <p>16 <span>°C</span></p>
         <p>11 <span>°C</span></p>
@@ -115,7 +119,7 @@
 
     <article class="info-total__semana--card">
       <h3 class="semana__card--titulo">Tomorrow</h3>
-      <img src="" alt="">
+      <img src="./images/LightRain.png" alt="Llovisna">
       <div class="semana__card--body">
         <p>16 <span>°C</span></p>
         <p>11 <span>°C</span></p>
@@ -123,14 +127,15 @@
     </article>
   </section>
 
+  <!--Hihglights-->
   <main class="info-detalles">
     <h2>Today's Highlights</h2>
     <div class="info-detalles__container">
       <article class="info-detalles__card">
         <h3 class="info-detalles__card--titulo">Wind Status</h3>
-        <p>7mph</p>
-        <div>
-          <img src="" alt="icono flecha">
+        <p>7<span>mph</span></p>
+        <div class="info-detalles__card--location">
+          <p class="icon"><i class="fas fa-location-arrow"></i></p>
           <p>wsw</p>
         </div>
       </article>
@@ -146,20 +151,20 @@
           </div>
 
           <div class="barra">
-            <div class="barra__avance"></div>
+            <progress max="100" value="70">70</progress>
           </div>
           <span>%</span>
         </div>
       </article>
 
-      <article class="info-detalles__card">
+      <article class="info-detalles__card info-detalles__card--2">
         <h3 class="info-detalles__card--titulo">Visibility</h3>
-        <p>6.4 miles</p>
+        <p>6.4 <span>miles</span></p>
       </article>
 
-      <article class="info-detalles__card">
+      <article class="info-detalles__card info-detalles__card--2">
         <h3 class="info-detalles__card--titulo">Air Pressure</h3>
-        <p>998 mb</p>
+        <p>998 <span>mb</span> </p>
       </article>
 
     </div>

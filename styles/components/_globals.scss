@@ -14,6 +14,10 @@ html {
     font-size: 62.5%;
 }
 
+img {
+    width: 100%;
+}
+
 body {
     font-size: 1.6rem;
     font-family: "Raleway", sans-serif;
@@ -22,6 +26,10 @@ body {
 }
 
 .hide {
+    display: none;
+}
+
+.ocultar {
     left: -500px;
     transition: left ease-in 300ms;
 }
@@ -42,4 +50,9 @@ body {
     width: 95%;
     margin: 0 auto;
     padding: 18px 0;
+}
+
+.container2 {
+    width: 90%;
+    margin: 0 auto;
 }

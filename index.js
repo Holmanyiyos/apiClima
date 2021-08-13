@@ -4,11 +4,11 @@ const cerrar = document.querySelector("#cerrar")
 buscarCiudad.addEventListener("click", function(ev){
     const menu = document.getElementById("menu-lateral")
     menu.classList.add("aparecer")
-    menu.classList.remove("hide")
+    menu.classList.remove("ocultar")
 })
 
 cerrar.addEventListener("click", function(ev){
     const menu = document.getElementById("menu-lateral")
     menu.classList.remove("aparecer")
-    menu.classList.add("hide")
+    menu.classList.add("ocultar")
 })

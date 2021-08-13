@@ -8,6 +8,10 @@ html {
   font-size: 62.5%;
 }
 
+img {
+  width: 100%;
+}
+
 body {
   font-size: 1.6rem;
   font-family: "Raleway", sans-serif;
@@ -16,6 +20,10 @@ body {
 }
 
 .hide {
+  display: none;
+}
+
+.ocultar {
   left: -500px;
   transition: left ease-in 300ms;
 }
@@ -30,6 +38,11 @@ body {
   width: 95%;
   margin: 0 auto;
   padding: 18px 0;
+}
+
+.container2, .info-detalles {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .info-actual {
@@ -137,6 +150,10 @@ body {
   font-weight: 600;
   font-size: 1.8rem;
 }
+.info-actual__body--pais i {
+  font-size: 2.2rem;
+  margin-right: 10px;
+}
 
 .menu-lateral {
   min-width: 320px;
@@ -155,9 +172,8 @@ body {
   height: 440px;
 }
 .menu-lateral__active {
-  width: 100%;
   font-size: 2.1rem;
-  text-align: end;
+  align-self: flex-end;
 }
 .menu-lateral .busqueda {
   width: 100%;
@@ -219,6 +235,138 @@ body {
 .ultimas-busquedas__card:hover {
   border: 1px solid #616475;
   cursor: pointer;
+}
+
+.info-total {
+  background-color: #100E1D;
+  min-height: 1700px;
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.info-total__semana {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 55px;
+}
+.info-total__semana--card {
+  width: 120px;
+  height: 180px;
+  padding: 16px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1e213a;
+  margin-bottom: 35px;
+}
+.info-total__semana--card img {
+  width: 57px;
+}
+
+.semana__card--body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.semana__card--body p:last-child {
+  color: #A09FB1;
+}
+
+.info-detalles h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  margin-bottom: 30px;
+}
+.info-detalles__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.info-detalles__card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: #1e213a;
+  width: 100%;
+  max-width: 328px;
+  height: 205px;
+}
+.info-detalles__card--2 {
+  height: 160px;
+}
+.info-detalles__card--titulo {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.info-detalles__card--location {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info-detalles__card > p {
+  font-weight: bold;
+  font-size: 6.4rem;
+  line-height: 7.5rem;
+}
+.info-detalles__card > p span {
+  font-size: 3.6rem;
+  font-weight: 500;
+  line-height: 4.2rem;
+}
+.info-detalles .icon {
+  background-color: #A09FB1;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  margin-right: 10px;
+}
+.info-detalles i {
+  font-size: 1.2rem;
+  text-align: center;
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  transform: rotate(160deg);
+}
+
+.barra__container {
+  width: 70%;
+  color: #A09FB1;
+}
+.barra__container span {
+  display: inline-block;
+  text-align: end;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.barra__numeros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.barra progress {
+  width: 100%;
+}
+
+.footer {
+  margin-top: 95px;
+  color: #A09FB1;
+  font-size: 1.4rem;
 }
 
 /*# sourceMappingURL=index.css.map */
