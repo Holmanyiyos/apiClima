@@ -41,34 +41,37 @@ const arrayClima = [
 ]
 
 // datos iniciales por defecto
-let ciudad = "lima"
-fetch(`https://www.metaweather.com/api/location/search/?query=${ciudad}`)
-.then(response => response.json())
-.then(data=>{
-    fetch2(data[0].woeid);
-})
+const bucarClima = (ciudad)=>{
 
-function fetch2(num){
-    fetch(`https://www.metaweather.com/api/location/${num}/`)
+    fetch(`https://www.metaweather.com/api/location/search/?query=${ciudad}`)
     .then(response => response.json())
-    .then(data=> {
-        // console.log(data);
-        datosAside(data);
-        datosSemana(data);
-        highlights(data);
+    .then(data=>{
+        fetch2(data[0].woeid);
     })
+    
+    function fetch2(num){
+        fetch(`https://www.metaweather.com/api/location/${num}/`)
+        .then(response => response.json())
+        .then(data=> {
+            // console.log(data);
+            datosAside(data);
+            datosSemana(data);
+            highlights(data);
+        })
+    }
 }
+bucarClima("lima")
 
 
 // generar formato de fecha 
 
 const fechaActual = ()=>{
-    const semana =["Mon", "Tue", "Wed","Thu","Fri","Sat","Sun"];
-    const meses = ["Jan", "Feb", "Mar", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    const semana =["Sun","Mon", "Tue", "Wed","Thu","Fri","Sat",];
+    const meses = ["Dec","Jan", "Feb", "Mar", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",]
     const fecha = new Date;
-    const numero = (fecha.getDate())
-    const diaSemana = semana[(fecha.getDay()-1)]
-    const mes = meses[fecha.getMonth()-1] 
+    const numero = fecha.getDate()
+    const diaSemana = semana[fecha.getDay()]
+    const mes = meses[fecha.getMonth()] 
     return `${diaSemana}, ${numero} ${mes}`
 }
 
@@ -138,13 +141,14 @@ function highlights(data){
 }
 
 
-// guardando busquedas recientes
+// guardando busquedas recientes y enviando el valor a buscar
 const input = document.querySelector("#ciudad")
 input.addEventListener("change", agregar)
 const ultimasBusquedas = ["lima", "bogotá", "los angeles", "berlin"];
 
 
 function agregar(){
+    bucarClima(input.value)
     ultimasBusquedas.unshift(input.value)
     
     localStorage.setItem("busqueda1", ultimasBusquedas[0])
