@@ -41,7 +41,8 @@ const arrayClima = [
 ]
 
 // datos iniciales por defecto
-fetch("https://www.metaweather.com/api/location/search/?query=los angeles")
+let ciudad = "lima"
+fetch(`https://www.metaweather.com/api/location/search/?query=${ciudad}`)
 .then(response => response.json())
 .then(data=>{
     fetch2(data[0].woeid);
@@ -137,4 +138,41 @@ function highlights(data){
 }
 
 
+// guardando busquedas recientes
+const input = document.querySelector("#ciudad")
+input.addEventListener("change", agregar)
+const ultimasBusquedas = ["lima", "bogotá", "los angeles", "berlin"];
+
+
+function agregar(){
+    ultimasBusquedas.unshift(input.value)
+    
+    localStorage.setItem("busqueda1", ultimasBusquedas[0])
+    localStorage.setItem("busqueda2", ultimasBusquedas[1])
+    localStorage.setItem("busqueda3", ultimasBusquedas[2])
+    localStorage.setItem("busqueda4", ultimasBusquedas[3])
+
+
+    const arrayBusquedas =[
+        localStorage.getItem("busqueda1"), 
+        localStorage.getItem("busqueda2"), 
+        localStorage.getItem("busqueda3"),
+        localStorage.getItem("busqueda4"),
+    ]
+    
+
+        agregarBusquedaReciente(arrayBusquedas)
+        input.value = "";
+}
+
+// pintando busquedas recientes
+function agregarBusquedaReciente(array){
+    const arraysBusqueda = array
+    const menuBusquedas = body.children[0].children[0].children[2];
+
+    for(let i=1; i <= arraysBusqueda.length; i++){
+        const tarjeta = menuBusquedas.children[i].children[0]
+        tarjeta.innerText = arraysBusqueda[i-1]
+    }
+}
 
