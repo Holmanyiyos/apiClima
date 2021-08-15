@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./styles/index.css">
 
 </head>
-<body>
+<body id="body">
 
 <!--Navegation-->
 <nav id="menu-lateral" class="ocultar menu-lateral">
@@ -50,7 +50,7 @@
     <button id="buscar-ciudad" class="info-actual__btn-container--btn-menu">Buscar Por Lugar</button>
 
     <!-- este botón busca según tu localización GPS  -->
-    <button class="info-actual__btn-container--btn-gps">+</button>
+    <button id="gps" class="info-actual__btn-container--btn-gps"><img src="./images/marcador-de-posicion.png" alt="icono posición"></button>
   </div>
 
   <div class="info-actual__img-clima">
@@ -98,7 +98,6 @@
         <p>11 <span>°C</span></p>
       </div>
     </article>
-
     <article class="info-total__semana--card">
       <h3 class="semana__card--titulo">Tomorrow</h3>
       <img src="./images/Shower.png" alt="Lluvias">
