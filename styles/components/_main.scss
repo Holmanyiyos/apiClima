@@ -13,7 +13,7 @@
     padding: 0 55px;
 
     &--card {
-        width: 120px;
+        width: 125px;
         height: 180px;
         padding: 16px 15px;
         @include flex(flex, space-between, center);
@@ -34,6 +34,10 @@
     p:last-child {
         color: #A09FB1;
     }
+}
+
+.semana__card--titulo {
+    font-size: 1.7rem
 }
 
 //INFO-DETALLES

@@ -20,7 +20,7 @@
     <p id="cerrar" class="menu-lateral__active">X</p>
     <div class="busqueda">
       <input type="text" placeholder="buscar ciudad" id="ciudad">
-      <button>Buscar</button>
+      <button id="buscar">Buscar</button>
     </div>
     <section class="ultimas-busquedas">
       <h2 class="ultimas-busquedas__titulo">últimas busquedas</h2>
@@ -134,6 +134,7 @@
   <!--Hihglights-->
   <main class="info-detalles">
     <h2>Today's Highlights</h2>
+
     <div class="info-detalles__container">
       <article class="info-detalles__card">
         <h3 class="info-detalles__card--titulo">Wind Status</h3>
@@ -155,7 +156,7 @@
           </div>
 
           <div class="barra">
-            <progress max="100" value="70">70</progress>
+            <progress id="progreso" max="100" value="84">70</progress>
           </div>
           <span>%</span>
         </div>

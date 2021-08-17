@@ -2,7 +2,7 @@
 .info-actual {
     height: 810px;
     min-width: 320px;
-    max-width: 460px;
+    max-width: 490px;
     background-color: $aside-bg-color;
     @include flex(flex, null, center);
     flex-direction: column;
@@ -39,6 +39,7 @@
         box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
         color: #e7e7eb;
         font-size: 2.6rem;
+        z-index: 3;
     }
 
     &__img-clima {
@@ -51,7 +52,7 @@
             width: 100%;
             height: 400px;
             background-image: url(../images/Cloud-background.png);
-            background-size: 170% 350px;
+            background-size: 170% 370px;
             background-repeat: no-repeat;
             background-position: center center;
             z-index: 1;
@@ -59,7 +60,9 @@
         }   
 
         img {
-            width: 150px;
+            min-width: 150px;
+            max-width: 170px;
+            max-height: 170px;
         }
 }
 

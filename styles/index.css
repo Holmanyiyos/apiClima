@@ -48,7 +48,7 @@ body {
 .info-actual {
   height: 810px;
   min-width: 320px;
-  max-width: 460px;
+  max-width: 490px;
   background-color: #1e213a;
   display: flex;
   align-items: center;
@@ -86,6 +86,7 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: #e7e7eb;
   font-size: 2.6rem;
+  z-index: 3;
 }
 .info-actual__img-clima {
   position: relative;
@@ -97,14 +98,16 @@ body {
   width: 100%;
   height: 400px;
   background-image: url(../images/Cloud-background.png);
-  background-size: 170% 350px;
+  background-size: 170% 370px;
   background-repeat: no-repeat;
   background-position: center center;
   z-index: 1;
   opacity: 0.1;
 }
 .info-actual__img-clima img {
-  width: 150px;
+  min-width: 150px;
+  max-width: 170px;
+  max-height: 170px;
 }
 .info-actual__body {
   display: flex;
@@ -254,7 +257,7 @@ body {
   padding: 0 55px;
 }
 .info-total__semana--card {
-  width: 120px;
+  width: 125px;
   height: 180px;
   padding: 16px 15px;
   display: flex;
@@ -276,6 +279,10 @@ body {
 }
 .semana__card--body p:last-child {
   color: #A09FB1;
+}
+
+.semana__card--titulo {
+  font-size: 1.7rem;
 }
 
 .info-detalles h2 {

@@ -89,13 +89,17 @@ function datosAside(data){
     const imagen = aside.children[1].children[1]
 
     //pintando datos
-    temperatura.innerHTML = `${parseInt(data.consolidated_weather[0].the_temp)} <span>°C</span>`;
-    clima.innerText = data.consolidated_weather[0].weather_state_name
+
+    const lugar = data
+    const diaPintar = lugar.consolidated_weather[0]
+
+    temperatura.innerHTML = `${parseInt(diaPintar.the_temp)} <span>°C</span>`;
+    clima.innerText = diaPintar.weather_state_name
     fecha.innerText = `${fechaActual()}`;
-    pais.innerHTML = `<i class="fas fa-map-marker-alt"></i>${data.title}`;
+    pais.innerHTML = `<i class="fas fa-map-marker-alt"></i>${lugar.title}`;
  
     const climaDia = arrayClima.filter(function(el){
-        return el.nombre === data.consolidated_weather[0].weather_state_name
+        return el.nombre === diaPintar.weather_state_name
     })
     imagen.setAttribute("src", climaDia[0].icono)
 }
@@ -107,14 +111,21 @@ function datosSemana(data){
      // seleccionando elementos
      const tarjetas = body.children[2].children[1]
 
+     //Variables de Data
+     const lugar = data
+     const diaPintar = lugar.consolidated_weather
+
      // recorriendo las tarjetas pintandolas
-     for(let i=0; i<5; i++){
+     for(let i=0, j=1 ; i<5 ; i++, j++){
+        const titulo = tarjetas.children[i].firstElementChild
         const imagen = tarjetas.children[i].children[1];
         const temperatura = tarjetas.children[i].children[2];
 
         const climaDia = arrayClima.filter(function(el){
-            return el.nombre === data.consolidated_weather[i].weather_state_name
+            return el.nombre === diaPintar[i].weather_state_name
         })
+        titulo.innerHTML = `${diaPintar[j].applicable_date.split("-").reverse().join("-")}`
+
         imagen.setAttribute("src", climaDia[0].icono)
 
         temperatura.children[0].innerHTML = `${parseInt(data.consolidated_weather[0].max_temp)} <span>°C</span>`;
@@ -126,16 +137,22 @@ function datosSemana(data){
 // pintando detalle de datos día seleccionado
 
 function highlights(data){
+    //Variables de Data
+    const lugar = data
+    const diaPintar = lugar.consolidated_weather[0]
+
     const container = body.children[2].children[2].children[1];
     const viento = container.children[0].children[1]
     const humedad = container.children[1].children[1]
+    const progreso = document.getElementById("progreso")
     const visibilidad = container.children[2].children[1]
     const Presion = container.children[3].children[1]
 
-    viento.innerHTML = `${parseInt(data.consolidated_weather[0].wind_speed)} <span>mph</span>`;
-    humedad.innerText = `${data.consolidated_weather[0].humidity}%`;
-    visibilidad.innerHTML = `${(data.consolidated_weather[0].visibility).toFixed(1)} <span>miles</span>`;
-    Presion.innerHTML = `${data.consolidated_weather[0].air_pressure} <span>mb</span>`;
+    viento.innerHTML = `${parseInt(diaPintar.wind_speed)}<span>mph</span>`;
+    humedad.innerhtml = `${diaPintar.humidity} <span>&#37</span>`;
+    progreso.value = diaPintar.humidity
+    visibilidad.innerHTML = `${(diaPintar.visibility).toFixed(1)} <span>miles</span>`;
+    Presion.innerHTML = `${diaPintar.air_pressure} <span>mb</span>`;
 
     console.log(data.consolidated_weather[0])
 }
@@ -143,7 +160,8 @@ function highlights(data){
 
 // guardando busquedas recientes y enviando el valor a buscar
 const input = document.querySelector("#ciudad")
-input.addEventListener("change", agregar)
+const buscarButon = document.querySelector("#buscar")
+buscarButon.addEventListener("click", agregar)
 const ultimasBusquedas = ["lima", "bogotá", "los angeles", "berlin"];
 
 
