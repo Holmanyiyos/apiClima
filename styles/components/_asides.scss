@@ -1,6 +1,12 @@
-
+@media (min-width:480px) {
+    .info-actual{ 
+        width: 490px;
+        min-height: auto;
+        max-width: 491px;
+    }
+}
 .info-actual {
-    height: 810px;
+    min-height: 810px;
     min-width: 320px;
     max-width: 490px;
     background-color: $aside-bg-color;

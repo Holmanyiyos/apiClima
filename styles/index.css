@@ -19,8 +19,13 @@ body {
   position: relative;
 }
 
+@media (min-width: 480px) {
+  body {
+    display: flex;
+  }
+}
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .ocultar {
@@ -45,8 +50,29 @@ body {
   margin: 0 auto;
 }
 
+.error {
+  border: 1px solid red !important;
+}
+
+.label {
+  display: inline-block;
+  top: -26px;
+  color: red;
+  position: absolute;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media (min-width: 480px) {
+  .info-actual {
+    width: 490px;
+    min-height: auto;
+    max-width: 491px;
+  }
+}
 .info-actual {
-  height: 810px;
+  min-height: 810px;
   min-width: 320px;
   max-width: 490px;
   background-color: #1e213a;
@@ -160,7 +186,7 @@ body {
 
 .menu-lateral {
   min-width: 320px;
-  max-width: 460px;
+  max-width: 490px;
   height: 675px;
   background-color: #1e213a;
   text-align: center;
@@ -176,20 +202,40 @@ body {
 }
 .menu-lateral__active {
   font-size: 2.1rem;
+  margin-bottom: 25px;
   align-self: flex-end;
 }
-.menu-lateral .busqueda {
+
+@media (min-width: 480px) {
+  .menu-lateral {
+    min-height: auto;
+    height: 800px;
+    max-width: 320px;
+  }
+}
+@media (min-width: 1024px) {
+  .menu-lateral {
+    max-width: 333px;
+  }
+}
+@media (min-width: 1440px) {
+  .menu-lateral {
+    max-width: 365px;
+  }
+}
+.busqueda {
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  position: relative;
 }
-.menu-lateral .busqueda input, .menu-lateral .busqueda button {
+.busqueda input, .busqueda button {
   height: 48px;
   font-family: "Raleway", sans-serif;
   font-size: 1.6rem;
 }
-.menu-lateral .busqueda input {
+.busqueda input {
   width: 250px;
   min-width: 170px;
   margin-right: 10px;
@@ -199,17 +245,17 @@ body {
   padding: 15px;
   outline: none;
 }
-.menu-lateral .busqueda input::placeholder {
+.busqueda input::placeholder {
   color: #616475;
 }
-.menu-lateral .busqueda button {
+.busqueda button {
   width: 86px;
   color: #E7E7EB;
   background-color: #3C47E9;
   border: none;
   font-weight: 600;
 }
-.menu-lateral .busqueda button:hover {
+.busqueda button:hover {
   cursor: pointer;
 }
 
@@ -225,9 +271,13 @@ body {
   padding: 0 12px;
   height: 65px;
   margin-top: 15px;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.ultimas-busquedas__card p {
+  z-index: -1;
 }
 .ultimas-busquedas__card span {
   display: none;
@@ -249,6 +299,11 @@ body {
   flex-direction: column;
 }
 
+@media (min-width: 480px) {
+  .info-total {
+    width: 100%;
+  }
+}
 .info-total__semana {
   width: 100%;
   display: flex;
@@ -305,11 +360,14 @@ body {
   flex-direction: column;
   background-color: #1e213a;
   width: 100%;
+  min-width: 320px;
   max-width: 328px;
   height: 205px;
 }
 .info-detalles__card--2 {
   height: 160px;
+  min-width: 320px;
+  max-width: 328px;
 }
 .info-detalles__card--titulo {
   font-weight: 500;
@@ -349,6 +407,35 @@ body {
   transform: rotate(160deg);
 }
 
+@media (min-width: 480px) {
+  .info-detalles {
+    width: 80%;
+  }
+
+  .info-detalles__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .info-total__semana {
+    width: 90%;
+    justify-content: space-evenly;
+  }
+
+  .info-total {
+    min-height: auto;
+  }
+
+  .order2 {
+    order: 3;
+  }
+
+  .order4 {
+    order: 4;
+  }
+}
 .barra__container {
   width: 70%;
   color: #A09FB1;

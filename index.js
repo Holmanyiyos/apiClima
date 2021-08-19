@@ -3,7 +3,11 @@ const cerrar = document.querySelector("#cerrar")
 const gps = document.querySelector("#gps")
 const body = document.querySelector("#body")
 
-
+function closeNav(ev){
+    const menu = document.getElementById("menu-lateral")
+    menu.classList.remove("aparecer")
+    menu.classList.add("ocultar")
+}
 
 buscarCiudad.addEventListener("click", function(ev){
     const menu = document.getElementById("menu-lateral")
@@ -11,11 +15,7 @@ buscarCiudad.addEventListener("click", function(ev){
     menu.classList.remove("ocultar")
 })
 
-cerrar.addEventListener("click", function(ev){
-    const menu = document.getElementById("menu-lateral")
-    menu.classList.remove("aparecer")
-    menu.classList.add("ocultar")
-})
+cerrar.addEventListener("click", closeNav )
 
 // obtener latitud y longitud 
 gps.addEventListener("click", function(ev){
@@ -48,6 +48,7 @@ const bucarClima = (ciudad)=>{
     .then(data=>{
         fetch2(data[0].woeid);
     })
+    closeNav()
     
     function fetch2(num){
         fetch(`https://www.metaweather.com/api/location/${num}/`)
@@ -163,28 +164,67 @@ const input = document.querySelector("#ciudad")
 const buscarButon = document.querySelector("#buscar")
 buscarButon.addEventListener("click", agregar)
 const ultimasBusquedas = ["lima", "bogotá", "los angeles", "berlin"];
+const busquedas = document.querySelector("#ultimas-busquedas")
+busquedas.addEventListener("click", agregarUltimasBusquedas)
 
+function agregar(ev){
 
-function agregar(){
-    bucarClima(input.value)
-    ultimasBusquedas.unshift(input.value)
+    if(input.value ===""){
+        ev.preventDefault()
+        return pintarError() 
+
+    } else {
+        const label = document.querySelector("#label")
+        label.classList.add("hide")
+        input.classList.remove("error")
+
+        bucarClima(input.value)
+        ultimasBusquedas.unshift(input.value)
+        
+        localStorage.setItem("busqueda1", ultimasBusquedas[0])
+        localStorage.setItem("busqueda2", ultimasBusquedas[1])
+        localStorage.setItem("busqueda3", ultimasBusquedas[2])
+        localStorage.setItem("busqueda4", ultimasBusquedas[3])
     
-    localStorage.setItem("busqueda1", ultimasBusquedas[0])
-    localStorage.setItem("busqueda2", ultimasBusquedas[1])
-    localStorage.setItem("busqueda3", ultimasBusquedas[2])
-    localStorage.setItem("busqueda4", ultimasBusquedas[3])
-
-
-    const arrayBusquedas =[
-        localStorage.getItem("busqueda1"), 
-        localStorage.getItem("busqueda2"), 
-        localStorage.getItem("busqueda3"),
-        localStorage.getItem("busqueda4"),
-    ]
     
+        const arrayBusquedas =[
+            localStorage.getItem("busqueda1"), 
+            localStorage.getItem("busqueda2"), 
+            localStorage.getItem("busqueda3"),
+            localStorage.getItem("busqueda4"),
+        ]
+        
+    
+            agregarBusquedaReciente(arrayBusquedas)
+            input.value = "";
+    }
+}
 
-        agregarBusquedaReciente(arrayBusquedas)
-        input.value = "";
+function agregarUltimasBusquedas(ev){
+        const target = ev.target
+        if(target.classList.contains("ultimas-busquedas__card")){
+            const targetBuscar = target.firstElementChild.innerText
+            bucarClima(targetBuscar)
+            ultimasBusquedas.unshift(targetBuscar)
+            
+            localStorage.setItem("busqueda1", ultimasBusquedas[0])
+            localStorage.setItem("busqueda2", ultimasBusquedas[1])
+            localStorage.setItem("busqueda3", ultimasBusquedas[2])
+            localStorage.setItem("busqueda4", ultimasBusquedas[3])
+        
+        
+            const arrayBusquedas =[
+                localStorage.getItem("busqueda1"), 
+                localStorage.getItem("busqueda2"), 
+                localStorage.getItem("busqueda3"),
+                localStorage.getItem("busqueda4"),
+            ]
+            
+        
+                agregarBusquedaReciente(arrayBusquedas)
+        }
+
+        
 }
 
 // pintando busquedas recientes
@@ -198,3 +238,9 @@ function agregarBusquedaReciente(array){
     }
 }
 
+const pintarError = (ev) => {
+    input.classList.add("error")
+    const label = document.querySelector("#label")
+    label.classList.remove("hide")
+    label.innerText = "Agregue un valor valido (solo capitales)"
+}

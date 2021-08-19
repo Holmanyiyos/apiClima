@@ -19,29 +19,30 @@
   <div class="container">
     <p id="cerrar" class="menu-lateral__active">X</p>
     <div class="busqueda">
+      <label class="label hide" id="label" for="ciudad"></label>
       <input type="text" placeholder="buscar ciudad" id="ciudad">
       <button id="buscar">Buscar</button>
     </div>
-    <section class="ultimas-busquedas">
+    <section id="ultimas-busquedas" class="ultimas-busquedas">
       <h2 class="ultimas-busquedas__titulo">últimas busquedas</h2>
       <div class="ultimas-busquedas__card">
         <p>lima</p>
-        <span>></span>
+        <span>&gt;</span>
       </div>
 
       <div class="ultimas-busquedas__card">
         <p>bogotá</p>
-        <span>></span>
+        <span>&gt;</span>
       </div>
 
       <div class="ultimas-busquedas__card">
         <p>los angeles</p>
-        <span>></span>
+        <span>&gt;</span>
       </div>
 
       <div class="ultimas-busquedas__card">
         <p>berlin</p>
-        <span>></span>
+        <span>&gt;</span>
       </div>
 
     </section>
@@ -55,7 +56,7 @@
     <button id="buscar-ciudad" class="info-actual__btn-container--btn-menu">Buscar Por Lugar</button>
 
     <!-- este botón busca según tu localización GPS  -->
-    <button id="gps" class="info-actual__btn-container--btn-gps"><img src="./images/marcador-de-posicion.png" alt="icono posición"></button>
+    <button id="gps" class="info-actual__btn-container--btn-gps"><i class="fas fa-map-marker-alt"></i></button>
   </div>
 
   <div class="info-actual__img-clima">
@@ -136,7 +137,7 @@
     <h2>Today's Highlights</h2>
 
     <div class="info-detalles__container">
-      <article class="info-detalles__card">
+      <article class="info-detalles__card order1">
         <h3 class="info-detalles__card--titulo">Wind Status</h3>
         <p>7<span>mph</span></p>
         <div class="info-detalles__card--location">
@@ -145,7 +146,7 @@
         </div>
       </article>
 
-      <article class="info-detalles__card">
+      <article class="info-detalles__card order2">
         <h3 class="info-detalles__card--titulo">Humidity</h3>
         <p>84 <span>%</span></p>
         <div class="barra__container">
@@ -162,12 +163,12 @@
         </div>
       </article>
 
-      <article class="info-detalles__card info-detalles__card--2">
+      <article class="info-detalles__card info-detalles__card--2 order3">
         <h3 class="info-detalles__card--titulo">Visibility</h3>
         <p>6.4 <span>miles</span></p>
       </article>
 
-      <article class="info-detalles__card info-detalles__card--2">
+      <article class="info-detalles__card info-detalles__card--2 order4">
         <h3 class="info-detalles__card--titulo">Air Pressure</h3>
         <p>998 <span>mb</span> </p>
       </article>

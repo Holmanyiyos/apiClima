@@ -1,6 +1,6 @@
 .menu-lateral {
     min-width: 320px;
-    max-width: 460px;
+    max-width: 490px;
     height: 675px;
     background-color: $aside-bg-color;
     text-align: center;
@@ -15,46 +15,69 @@
     }
     &__active {
         font-size: 2.1rem;
+        margin-bottom: 25px;
         align-self: flex-end;
     }
 
-    .busqueda {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
+    
+}
 
-        input, button {
-            height: 48px;
-            font-family: $font;
-            font-size: 1.6rem;
+@media (min-width: 480px ) {
+    .menu-lateral {
+        min-height: auto;
+        height: 800px;
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 1024px ) {
+    .menu-lateral {
+        max-width: 333px;
+    }
+}
+
+@media (min-width: 1440px ) {
+    .menu-lateral {
+        max-width: 365px;
+    }
+}
+.busqueda {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+
+    input, button {
+        height: 48px;
+        font-family: $font;
+        font-size: 1.6rem;
+    }
+
+    input {
+        width: 250px;
+        min-width: 170px;
+        margin-right: 10px;
+        border: 1px solid #E7E7EB;
+        background-color: transparent;
+        color: #E7E7EB;
+        padding: 15px;
+        outline: none;
+
+        &::placeholder {
+            color: #616475;
         }
+    }
 
-        input {
-            width: 250px;
-            min-width: 170px;
-            margin-right: 10px;
-            border: 1px solid #E7E7EB;
-            background-color: transparent;
-            color: #E7E7EB;
-            padding: 15px;
-            outline: none;
-
-            &::placeholder {
-                color: #616475;
-            }
-        }
-
-        button {
-            width: 86px;
-            color: #E7E7EB;
-            background-color: #3C47E9;
-            border: none;
-            font-weight: 600;
-            
-            &:hover {
-                cursor: pointer;
-            }
+    button {
+        width: 86px;
+        color: #E7E7EB;
+        background-color: #3C47E9;
+        border: none;
+        font-weight: 600;
+        
+        &:hover {
+            cursor: pointer;
         }
     }
 }
@@ -72,8 +95,12 @@
         padding: 0 12px;
         height: 65px;
         margin-top: 15px;
+        z-index: 2;
         @include flex(flex, space-between, center);
         
+        p {
+            z-index: -1;
+        }
         span {
             display: none;
         }
