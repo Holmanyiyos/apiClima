@@ -34,7 +34,7 @@ const arrayClima = [
     {nombre: "Thunderstorm", icono: "./images/Thunderstorm.png"},
     {nombre: "Heavy Rain", icono: "./images/HeavyRain.png"},
     {nombre: "Light Rain", icono: "./images/LightRain.png"},
-    {nombre: "Showers", icono: "./images/Showers.png"},
+    {nombre: "Showers", icono: "./images/Shower.png"},
     {nombre: "Heavy Cloud", icono: "./images/HeavyCloud.png"},
     {nombre: "Light Cloud", icono: "./images/LightCloud.png"},
     {nombre: "Clear", icono: "./images/Clear.png"},
@@ -60,8 +60,11 @@ const bucarClima = (ciudad)=>{
             highlights(data);
         })
     }
+    
 }
+
 bucarClima("lima")
+
 
 
 // generar formato de fecha 
@@ -150,7 +153,7 @@ function highlights(data){
     const Presion = container.children[3].children[1]
 
     viento.innerHTML = `${parseInt(diaPintar.wind_speed)}<span>mph</span>`;
-    humedad.innerhtml = `${diaPintar.humidity} <span>&#37</span>`;
+    humedad.innerHTML = `${diaPintar.humidity} <span>&#37</span>`;
     progreso.value = diaPintar.humidity
     visibilidad.innerHTML = `${(diaPintar.visibility).toFixed(1)} <span>miles</span>`;
     Presion.innerHTML = `${diaPintar.air_pressure} <span>mb</span>`;
