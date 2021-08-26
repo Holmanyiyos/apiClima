@@ -13,6 +13,7 @@ buscarCiudad.addEventListener("click", function(ev){
     const menu = document.getElementById("menu-lateral")
     menu.classList.add("aparecer")
     menu.classList.remove("ocultar")
+    input.focus()
 })
 
 cerrar.addEventListener("click", closeNav )
@@ -41,20 +42,19 @@ const arrayClima = [
 ]
 
 // datos iniciales por defecto
-const bucarClima = (ciudad)=>{
+const buscarClima = (ciudad)=>{
 
     fetch(`https://www.metaweather.com/api/location/search/?query=${ciudad}`)
     .then(response => response.json())
     .then(data=>{
         fetch2(data[0].woeid);
-    })
+    });
     closeNav()
     
     function fetch2(num){
         fetch(`https://www.metaweather.com/api/location/${num}/`)
         .then(response => response.json())
         .then(data=> {
-            // console.log(data);
             datosAside(data);
             datosSemana(data);
             highlights(data);
@@ -63,19 +63,20 @@ const bucarClima = (ciudad)=>{
     
 }
 
-bucarClima("lima")
+buscarClima("lima")
 
 
 
 // generar formato de fecha 
 
-const fechaActual = ()=>{
+const fechaActual = (data)=>{
+    const arrayFecha = data.applicable_date.split("-")
     const semana =["Sun","Mon", "Tue", "Wed","Thu","Fri","Sat",];
-    const meses = ["Dec","Jan", "Feb", "Mar", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",]
-    const fecha = new Date;
-    const numero = fecha.getDate()
-    const diaSemana = semana[fecha.getDay()]
-    const mes = meses[fecha.getMonth()] 
+    const meses = ["Jan", "Feb", "Mar", "Apr" ,"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec"]
+    const numero = arrayFecha[2]
+    const mes = meses[parseInt(arrayFecha[1])-1] 
+    const diaDe = new Date(`${mes} ${numero}, ${arrayFecha[0]}`)
+    const diaSemana = semana[diaDe.getDay()]
     return `${diaSemana}, ${numero} ${mes}`
 }
 
@@ -99,7 +100,7 @@ function datosAside(data){
 
     temperatura.innerHTML = `${parseInt(diaPintar.the_temp)} <span>°C</span>`;
     clima.innerText = diaPintar.weather_state_name
-    fecha.innerText = `${fechaActual()}`;
+    fecha.innerText = `${fechaActual(diaPintar)}`;
     pais.innerHTML = `<i class="fas fa-map-marker-alt"></i>${lugar.title}`;
  
     const climaDia = arrayClima.filter(function(el){
@@ -128,7 +129,7 @@ function datosSemana(data){
         const climaDia = arrayClima.filter(function(el){
             return el.nombre === diaPintar[i].weather_state_name
         })
-        titulo.innerHTML = `${diaPintar[j].applicable_date.split("-").reverse().join("-")}`
+        titulo.innerHTML = fechaActual(diaPintar[j])
 
         imagen.setAttribute("src", climaDia[0].icono)
 
@@ -158,7 +159,6 @@ function highlights(data){
     visibilidad.innerHTML = `${(diaPintar.visibility).toFixed(1)} <span>miles</span>`;
     Presion.innerHTML = `${diaPintar.air_pressure} <span>mb</span>`;
 
-    console.log(data.consolidated_weather[0])
 }
 
 
@@ -181,7 +181,7 @@ function agregar(ev){
         label.classList.add("hide")
         input.classList.remove("error")
 
-        bucarClima(input.value)
+        buscarClima(input.value)
         ultimasBusquedas.unshift(input.value)
         
         localStorage.setItem("busqueda1", ultimasBusquedas[0])
@@ -207,7 +207,7 @@ function agregarUltimasBusquedas(ev){
         const target = ev.target
         if(target.classList.contains("ultimas-busquedas__card")){
             const targetBuscar = target.firstElementChild.innerText
-            bucarClima(targetBuscar)
+            buscarClima(targetBuscar)
             ultimasBusquedas.unshift(targetBuscar)
             
             localStorage.setItem("busqueda1", ultimasBusquedas[0])
