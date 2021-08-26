@@ -2,6 +2,9 @@ const buscarCiudad = document.querySelector("#buscar-ciudad")
 const cerrar = document.querySelector("#cerrar")
 const gps = document.querySelector("#gps")
 const body = document.querySelector("#body")
+const modal = document.getElementById("modal")
+modal.style.display = "none"
+
 
 function closeNav(ev){
     const menu = document.getElementById("menu-lateral")
@@ -48,7 +51,8 @@ const buscarClima = (ciudad)=>{
     .then(response => response.json())
     .then(data=>{
         fetch2(data[0].woeid);
-    });
+    })
+    .catch(()=>modal.style.display = "initial")
     closeNav()
     
     function fetch2(num){
@@ -246,4 +250,10 @@ const pintarError = (ev) => {
     const label = document.querySelector("#label")
     label.classList.remove("hide")
     label.innerText = "Agregue un valor valido (solo capitales)"
+}
+
+modal.children[1].children[1].addEventListener("click", closeModal)
+// cerrar modal 
+function closeModal(){
+    modal.style.display = "none"
 }
